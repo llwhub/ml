@@ -23,6 +23,18 @@
             <systemPath>${basedir}/src/main/resources/libs/ajt-2.11.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>cc.mallet</groupId>
+            <artifactId>mallet</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.edwardraff</groupId>
+            <artifactId>JSAT</artifactId>
+            <version>0.0.9</version>
+        </dependency>
+
     </dependencies>
     <repositories>
         <repository>

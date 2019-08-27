@@ -21,7 +21,7 @@ public class KMeanCluster {
         // 加载数据
         Dataset dataSet = FileHandler.loadDataset(new File("src/main/resources/zscoreddata.csv"),-1,",");
         //分成5类
-        KMeans km = new KMeans(5);
+        KMeans km = new KMeans(2);
         //分类数据
         Dataset[] clusters  = km.cluster(dataSet);
 
@@ -29,9 +29,7 @@ public class KMeanCluster {
         System.out.println(clusters.length);
         //打印分类数据
         for(Dataset res:clusters){
-            for(Object obj:res.classes()){
-                System.out.println(obj.toString());
-            }
+            System.out.println(res.noAttributes());
         }
     }
 }

@@ -1,12 +1,19 @@
 package com.lifq.demo;
 
-import net.sf.javaml.clustering.Clusterer;
-import net.sf.javaml.clustering.KMeans;
-import net.sf.javaml.core.Dataset;
-import net.sf.javaml.tools.data.FileHandler;
+import jsat.SimpleDataSet;
+import jsat.classifiers.DataPoint;
+import jsat.clustering.kmeans.KMeans;
+import jsat.clustering.kmeans.NaiveKMeans;
+import jsat.clustering.kmeans.XMeans;
+import jsat.io.CSV;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * <pre>
@@ -16,20 +23,18 @@ import java.io.IOException;
  * </pre>
  */
 
-public class KMeanCluster {
+public class KMeanClusterJSAT {
     public static void main(String[] args) throws IOException {
         // 加载数据
-        Dataset dataSet = FileHandler.loadDataset(new File("src/main/resources/zscoreddata.csv"),-1,",");
-        //分成5类
-        KMeans km = new KMeans(2);
+        Set<Integer> catCols = new HashSet<Integer>(Arrays.asList(0,1,2,3,4));
+        SimpleDataSet simpleDataSet= CSV.read(new FileReader(new File("src/main/resources/zscoreddata.csv")),0,catCols);
+        XMeans xMeans =new XMeans();
+        xMeans.setMinClusterSize(5);
         //分类数据
-        Dataset[] clusters  = km.cluster(dataSet);
 
-        //分类大小
-        System.out.println(clusters.length);
-        //打印分类数据
-        for(Dataset res:clusters){
-            System.out.println(res.noAttributes());
+        List<List<DataPoint>> dataList = xMeans.cluster(simpleDataSet,5);
+        for(List<DataPoint> list:dataList){
+            System.out.println(list);
         }
     }
 }
