@@ -24,7 +24,10 @@ public class KMeanCluster {
         KMeans km = new KMeans(5);
         //分类数据
         Dataset[] clusters  = km.cluster(dataSet);
+
+        //分类大小
         System.out.println(clusters.length);
+        //打印分类数据
         for(Dataset res:clusters){
             for(Object obj:res.classes()){
                 System.out.println(obj.toString());
