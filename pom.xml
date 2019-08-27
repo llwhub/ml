@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.lifq.demo</groupId>
+    <artifactId>ml</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifa ct/net.sourceforge/javaml -->
+        <dependency>
+            <groupId>net.sourceforge</groupId>
+            <artifactId>javaml</artifactId>
+            <version>0.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>be.abeel.io</groupId>
+            <artifactId>ajt</artifactId>
+            <version>2.11</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/libs/ajt-2.11.jar</systemPath>
+        </dependency>
+
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>sourceforge</id>
+            <url>http://maven.icm.edu.pl/artifactory/repo/</url>
+        </repository>
+        <repository>
+            <id>two</id>
+            <url>https://bio.informatik.uni-jena.de/repository/libs-release-oss/</url>
+        </repository>
+    </repositories>
+</project>
